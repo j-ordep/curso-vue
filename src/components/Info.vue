@@ -36,11 +36,7 @@ export default {
   },
   methods: {
     showEmail() {
-      if (this.mostrar_email == true) {
-        this.mostrar_email = false
-      } else {
-        this.mostrar_email = true
-      }
+        this.mostrar_email = !this.mostrar_email
     }
   }, 
   
