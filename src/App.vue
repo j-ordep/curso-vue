@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header/>
+    <PrimeiroComponent/>
+    <Header :esta_logado="esta_logado"/>
     <LifeCycle />
     <p class="teste-pai">teste component pai</p>
     <Pessoa/>
@@ -8,16 +9,23 @@
 </template>
 
 <script>
+import PrimeiroComponent from './components/PrimeiroComponent.vue';
 import LifeCycle from './components/LifeCycle.vue'
 import Pessoa from './components/Pessoa.vue';
 import Header from './components/Header.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      esta_logado: true,
+    }
+  },
   components: {
     Header,
     LifeCycle,
     Pessoa,
+    PrimeiroComponent,
   }
 }
 </script>

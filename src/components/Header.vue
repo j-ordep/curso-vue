@@ -3,13 +3,14 @@
     <li><a href="#">Home</a></li>
     <li><a href="#">Projetos</a></li>
     <li><a href="#">Contatos</a></li>
+    <li v-if="esta_logado"> <a href="https://github.com/j-ordep" target="_blank">Meu perfil</a></li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: "Header"
-
+  name: "Header",
+  props: ["esta_logado"]
 }
 </script>
 

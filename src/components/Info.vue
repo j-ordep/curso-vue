@@ -2,6 +2,7 @@
   <div>
     <p v-if="esta_trabalhando">Estou trabalhando no momento</p>
     <p v-else>Estou em busca de uma oportunidade de emprego</p>
+
     <p>Utilizo as seguintes tecnologias para backend:</p>
     <ul>
       <li v-for="(technology, index) in backend_technologies" v-bind:key="index">{{ technology }}</li>
@@ -12,9 +13,11 @@
         {{ technology.id}} - {{ technology.language }}
       </li>
     </ul>
+
     <div>
       <button @click="showEmail">{{ bnt_text }}</button>
     </div>
+
     <p v-show="mostrar_email">E-mail: {{ email }}</p>
     <p class="teste">para acessar meu portifolio <a v-bind:href="meu_link" target="_blank">clique aqui</a></p>
   </div>
@@ -30,13 +33,19 @@ export default {
   components: {
     Picture,
   },
+
+  props: {
+    email: String,
+    esta_trabalhando: Boolean
+  },
+
   data() {
     return {
-      esta_trabalhando: true,
       mostrar_email: false,
-      email: "email@gmail.com",
+
       meu_link: "http://google.com",
       bnt_text: "mostrar email",
+
       backend_technologies: ["Go", "Java", "JavaScript"],
       frontend_technologies: [
         {id: 1, language: "HTML"},
@@ -45,6 +54,7 @@ export default {
       ]
     }
   },
+
   methods: {
     showEmail() {
       this.mostrar_email = !this.mostrar_email
