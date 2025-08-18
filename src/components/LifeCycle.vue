@@ -5,16 +5,33 @@
 <script>
 export default {
   name: 'LifeCycle',
+
   data() {
     return { 
       nome: "Ainda não sei"
     }
   },
+
   created() {
-    this.nome = "Juliana"
+    setTimeout(() => {
+      this.nome = "carregando"
+    }, 1000);
+
+    this.lifeCycleExec()
   },
+
   mounted() {
-    
+    setTimeout(() => {
+      this.nome = "Juliana"
+    }, 2000);
+
+    this.lifeCycleExec()
+  },
+
+  methods: {
+    lifeCycleExec() {
+      console.log("executou")
+    }
   }
 }
 </script>
